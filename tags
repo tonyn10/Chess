@@ -1,0 +1,46 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BOARD_HEIGHT	window.c	4;"	d	file:
+BOARD_WIDTH	window.c	3;"	d	file:
+Bishop	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
+Black	board_state.h	/^typedef enum {White, Black, None} Winner;$/;"	e	enum:__anon1
+BoardState	board_state.h	/^} BoardState;$/;"	t	typeref:struct:__anon2
+CC	Makefile	/^CC=gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS=-I.$/;"	m
+DEPS	Makefile	/^DEPS = position.h piece.h board_state.h square.h$/;"	m
+Empty	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
+GTK	Makefile	/^GTK = `pkg-config --libs --cflags gtk+-3.0`$/;"	m
+King	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
+Knight	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
+None	board_state.h	/^typedef enum {White, Black, None} Winner;$/;"	e	enum:__anon1
+Pawn	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
+Piece	piece.h	/^} Piece;$/;"	t	typeref:struct:__anon4
+PieceType	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	t	typeref:enum:__anon3
+Position	position.h	/^} Position;$/;"	t	typeref:struct:__anon5
+Queen	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
+Rook	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
+SquareEntity	square.h	/^} SquareEntity;$/;"	t	typeref:struct:__anon6
+White	board_state.h	/^typedef enum {White, Black, None} Winner;$/;"	e	enum:__anon1
+Winner	board_state.h	/^typedef enum {White, Black, None} Winner;$/;"	t	typeref:enum:__anon1
+boardSquares	board_state.h	/^	SquareEntity *boardSquares;$/;"	m	struct:__anon2
+boardState	text.c	/^BoardState *boardState;$/;"	v
+get_square_info	square.c	/^char *get_square_info(SquareEntity square) {$/;"	f
+initialize_board	board_state.c	/^BoardState *initialize_board() {$/;"	f
+initialize_board_squares	square.c	/^SquareEntity *initialize_board_squares() {$/;"	f
+initialize_game	text.c	/^void initialize_game() {$/;"	f
+main	text.c	/^int main() {$/;"	f
+main	window.c	/^int main(int argc, char *argv[]) {$/;"	f
+moves	board_state.h	/^	int moves;$/;"	m	struct:__anon2
+piece	square.h	/^	Piece piece;$/;"	m	struct:__anon6
+position	square.h	/^	Position position;$/;"	m	struct:__anon6
+position_hashcode	position.c	/^int position_hashcode(Position p) {$/;"	f
+position_to_string	position.c	/^char *position_to_string(Position p) {$/;"	f
+printBoard	board_state.c	/^void printBoard(BoardState *boardState) {$/;"	f
+type	piece.h	/^	PieceType type;	$/;"	m	struct:__anon4
+winner	board_state.h	/^	Winner winner;	$/;"	m	struct:__anon2
+x	position.h	/^	int x, y;$/;"	m	struct:__anon5
+y	position.h	/^	int x, y;$/;"	m	struct:__anon5
