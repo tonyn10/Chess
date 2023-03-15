@@ -10,6 +10,9 @@ BoardState *initialize_board() {
 	Player *white = (Player *) malloc(sizeof(Player));
 	Player *black = (Player *) malloc(sizeof(Player));
 
+	white->name = "White";
+	black->name = "Black";
+
 	white->boardSquares = initialize_clean_squares();
 	place_white_pieces(white->boardSquares);
 	white->nextPlayer = black;
@@ -40,7 +43,7 @@ void printBoard(BoardState *boardState) {
 		printf("%-18s", buffer);
 		free(buffer);
 	}
-	printf("\n");
+	printf("\n\n");
 }
 
 void free_board_state(BoardState *boardState) {
@@ -53,7 +56,3 @@ void free_board_state(BoardState *boardState) {
 	free(boardState);
 }
 
-bool receiveMove(char *startCoordinate, char *endCoordinate) {
-	Position *startPosition = (Position *) startCoordinate;
-
-}

@@ -1,9 +1,13 @@
 #include "square.h"
 #include <stdbool.h>
 
+#ifndef BOARD_STATE
+#define BOARD_STATE
+
 typedef enum {White, Black, None} Winner;
 
 typedef struct Player {
+	char *name;
 	SquareEntity *boardSquares;
 	struct Player *nextPlayer;	
 } Player;
@@ -21,6 +25,4 @@ void printBoard(BoardState *);
 
 void free_board_state(BoardState *);
 
-// receive a string coordinate
-bool receiveMove(char *, char *);
-
+#endif

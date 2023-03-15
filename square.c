@@ -38,6 +38,21 @@ void place_white_pieces(SquareEntity *squares) {
 	squares[60].piece.type = King;
 }
 
+// returns the piece captured
+Piece empty_square(SquareEntity *s) {
+	Piece p = s->piece;
+	s->piece.type = Empty;
+	return p;
+}
+
+void put_square(SquareEntity *s, PieceType newPieceType) {
+	s->piece.type = newPieceType;
+}
+
+SquareEntity *get_square(SquareEntity *boardSquares, Position target) {
+	return &boardSquares[position_hashcode(target)];
+}
+
 char *get_square_info(SquareEntity square) {
 	char *buffer = (char *) malloc(50 * sizeof(char));
 	char *label[] = {"Pawn", "Knight", "Bishop", "Rook", "Queen", "King", ""};
