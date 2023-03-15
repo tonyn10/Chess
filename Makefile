@@ -8,9 +8,12 @@ DEPS = position.h piece.h board_state.h square.h
 # flag for GTK configuration
 GTK = `pkg-config --libs --cflags gtk+-3.0`
 
-text: text.o position.o piece.o board_state.o square.o
-	$(CC) -o text text.o position.o piece.o board_state.o square.o
+text_runner: text_runner.o position.o piece.o board_state.o square.o
+	$(CC) -o text_runner text_runner.o position.o piece.o board_state.o square.o
 
-window: window.o
-	$(CC) -o window window.o $(GTK)
+window_runner:
+	$(CC) -o window_runner window_runner.c $(GTK)
+
+clean:
+	rm text_runner window_runner *.o
 

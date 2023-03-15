@@ -13,7 +13,6 @@ int main() {
 	initialize_game();
 	printBoard(boardState);
 
-
 	free_board_state(boardState);
 	return 0;
 }
