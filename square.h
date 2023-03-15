@@ -6,6 +6,10 @@ typedef struct {
 	Piece piece;
 } SquareEntity;
 
-SquareEntity *initialize_board_squares();
+SquareEntity *initialize_clean_squares();
+
+void place_black_pieces(SquareEntity *);
+
+void place_white_pieces(SquareEntity *);
 
 char *get_square_info(SquareEntity);
