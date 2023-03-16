@@ -11,8 +11,8 @@ void initialize_game() {
 
 void play_game() {
 	while (ask_play_game()) {
+		print_board(boardState);
 		while (boardState->winner == None) {
-			printBoard(boardState);
 			
 			printf("%s's turn.\n", boardState->currentPlayer->name);
 
@@ -23,6 +23,7 @@ void play_game() {
 			Position dest = receive_square_input();
 
 			move(boardState->currentPlayer, src, dest);
+			print_board(boardState);
 
 			boardState->currentPlayer = boardState->currentPlayer->nextPlayer;
 		}

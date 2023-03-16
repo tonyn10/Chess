@@ -26,20 +26,23 @@ BoardState *initialize_board() {
 	return boardState;
 }
 
-void printBoard(BoardState *boardState) {
+void print_board(BoardState *boardState) {
 	for (int i = 0; i < 64; ++i) {
 		if (i && !(i % 8)) {
 			printf("\n\n");
 		}
 
 		SquareEntity chosenSquare;
+		char *chosenName;
 		if (boardState->currentPlayer->boardSquares[i].piece.type != Empty) {
 			chosenSquare = boardState->currentPlayer->boardSquares[i];
+			chosenName = boardState->currentPlayer->name;
 		} else {
 			chosenSquare = boardState->currentPlayer->nextPlayer->boardSquares[i];
+			chosenName = boardState->currentPlayer->nextPlayer->name;
 		}		
 
-		char *buffer = get_square_info(chosenSquare);
+		char *buffer = get_square_info(chosenSquare, chosenName);
 		printf("%-18s", buffer);
 		free(buffer);
 	}

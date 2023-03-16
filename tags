@@ -11,7 +11,7 @@ Bishop	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} P
 Black	board_state.h	/^typedef enum {White, Black, None} Winner;$/;"	e	enum:__anon1
 BoardState	board_state.h	/^} BoardState;$/;"	t	typeref:struct:__anon2
 CC	Makefile	/^CC=gcc$/;"	m
-CFLAGS	Makefile	/^CFLAGS=-I.$/;"	m
+CFLAGS	Makefile	/^CFLAGS=-ggdb$/;"	m
 DEPS	Makefile	/^DEPS = position.h piece.h board_state.h square.h text_io.h move_pieces.h$/;"	m
 Empty	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
 GTK	Makefile	/^GTK = `pkg-config --libs --cflags gtk+-3.0`$/;"	m
@@ -29,19 +29,21 @@ Position	position.h	/^} Position;$/;"	t	typeref:union:__anon5
 Queen	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
 Rook	piece.h	/^typedef enum {Pawn, Knight, Bishop, Rook, Queen, King, Empty} PieceType;$/;"	e	enum:__anon3
 SQUARE	square.h	6;"	d
-SquareEntity	square.h	/^} SquareEntity;$/;"	t	typeref:struct:__anon6
+ScoreBoard	score_board.h	/^} ScoreBoard;$/;"	t	typeref:struct:__anon6
+SquareEntity	square.h	/^} SquareEntity;$/;"	t	typeref:struct:__anon7
 White	board_state.h	/^typedef enum {White, Black, None} Winner;$/;"	e	enum:__anon1
 Winner	board_state.h	/^typedef enum {White, Black, None} Winner;$/;"	t	typeref:enum:__anon1
 ask_play_game	text_io.c	/^bool ask_play_game() {$/;"	f
+blackLabels	square.c	/^static char *blackLabels[] = {"(B) Pawn", "(B) Knight", "(B) Bishop", "(B) Rook", "(B) Queen", "(B) King", ""};$/;"	v	file:
 boardSquares	board_state.h	/^	SquareEntity *boardSquares;$/;"	m	struct:Player
 boardState	text_runner.c	/^BoardState *boardState;$/;"	v
 coordinate_to_number	position.c	/^void coordinate_to_number(Position *p) {$/;"	f
 currentPlayer	board_state.h	/^	Player *currentPlayer;$/;"	m	struct:__anon2
-empty_square	square.c	/^Piece empty_square(SquareEntity *s) {$/;"	f
+empty_square	square.c	/^PieceType empty_square(SquareEntity *s) {$/;"	f
 flip_axis	position.c	/^void flip_axis(Position *p) {$/;"	f
 free_board_state	board_state.c	/^void free_board_state(BoardState *boardState) {$/;"	f
 get_square	square.c	/^SquareEntity *get_square(SquareEntity *boardSquares, Position target) {$/;"	f
-get_square_info	square.c	/^char *get_square_info(SquareEntity square) {$/;"	f
+get_square_info	square.c	/^char *get_square_info(SquareEntity square, const char *name) {$/;"	f
 initialize_board	board_state.c	/^BoardState *initialize_board() {$/;"	f
 initialize_clean_squares	square.c	/^SquareEntity *initialize_clean_squares() {$/;"	f
 initialize_game	text_runner.c	/^void initialize_game() {$/;"	f
@@ -51,21 +53,28 @@ main	window_runner.c	/^int main(int argc, char *argv[]) {$/;"	f
 move	move_pieces.c	/^void move(Player *currentPlayer, Position src, Position dest) {$/;"	f
 moves	board_state.h	/^	int moves;$/;"	m	struct:__anon2
 name	board_state.h	/^	char *name;$/;"	m	struct:Player
+name1	score_board.h	/^	char *name1;$/;"	m	struct:__anon6
+name2	score_board.h	/^	char *name2;$/;"	m	struct:__anon6
 nextPlayer	board_state.h	/^	struct Player *nextPlayer;	$/;"	m	struct:Player	typeref:struct:Player::Player
 number_to_coordinate	position.c	/^void number_to_coordinate(Position *p) {$/;"	f
-piece	square.h	/^	Piece piece;$/;"	m	struct:__anon6
+piece	square.h	/^	Piece piece;$/;"	m	struct:__anon7
+piecesCount1	score_board.h	/^	int piecesCount1[6];$/;"	m	struct:__anon6
+piecesCount2	score_board.h	/^	int piecesCount2[6];$/;"	m	struct:__anon6
 place_black_pieces	square.c	/^void place_black_pieces(SquareEntity *squares) {$/;"	f
 place_white_pieces	square.c	/^void place_white_pieces(SquareEntity *squares) {$/;"	f
 play_game	text_runner.c	/^void play_game() {$/;"	f
-position	square.h	/^	Position position;$/;"	m	struct:__anon6
+position	square.h	/^	Position position;$/;"	m	struct:__anon7
 position_hashcode	position.c	/^int position_hashcode(Position p) {$/;"	f
 position_to_string	position.c	/^char *position_to_string(Position p) {$/;"	f
-printBoard	board_state.c	/^void printBoard(BoardState *boardState) {$/;"	f
+print_board	board_state.c	/^void print_board(BoardState *boardState) {$/;"	f
 put_square	square.c	/^void put_square(SquareEntity *s, PieceType newPieceType) {$/;"	f
 receive_square_input	text_io.c	/^Position receive_square_input() {$/;"	f
+score1	score_board.h	/^	int score1;$/;"	m	struct:__anon6
+score2	score_board.h	/^	int score2;$/;"	m	struct:__anon6
 type	piece.h	/^	PieceType type;	$/;"	m	struct:__anon4
 valid_first_char	text_io.c	/^bool valid_first_char(char *c) {$/;"	f
 valid_second_char	text_io.c	/^bool valid_second_char(char c) {$/;"	f
 valid_yes_no	text_io.c	/^bool valid_yes_no(char c) {$/;"	f
+whiteLabels	square.c	/^static char *whiteLabels[] = {"(W) Pawn", "(W) Knight", "(W) Bishop", "(W) Rook", "(W) Queen", "(W) King", ""};$/;"	v	file:
 winner	board_state.h	/^	Winner winner;	$/;"	m	struct:__anon2
 xy	position.h	/^	int xy[2];$/;"	m	union:__anon5

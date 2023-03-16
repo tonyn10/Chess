@@ -21,7 +21,7 @@ typedef struct {
 
 BoardState *initialize_board();
 
-void printBoard(BoardState *);
+void print_board(BoardState *);
 
 void free_board_state(BoardState *);
 

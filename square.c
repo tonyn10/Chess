@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+static char *whiteLabels[] = {"(W) Pawn", "(W) Knight", "(W) Bishop", "(W) Rook", "(W) Queen", "(W) King", ""};
+static char *blackLabels[] = {"(B) Pawn", "(B) Knight", "(B) Bishop", "(B) Rook", "(B) Queen", "(B) King", ""};
+
 SquareEntity *initialize_clean_squares() {
 	SquareEntity *squares = (SquareEntity *) malloc(64 * sizeof(SquareEntity));
 	for (int i = 0; i < 64; ++i) {
@@ -39,10 +42,10 @@ void place_white_pieces(SquareEntity *squares) {
 }
 
 // returns the piece captured
-Piece empty_square(SquareEntity *s) {
-	Piece p = s->piece;
+PieceType empty_square(SquareEntity *s) {
+	PieceType pType = s->piece.type;
 	s->piece.type = Empty;
-	return p;
+	return pType;
 }
 
 void put_square(SquareEntity *s, PieceType newPieceType) {
@@ -53,11 +56,19 @@ SquareEntity *get_square(SquareEntity *boardSquares, Position target) {
 	return &boardSquares[position_hashcode(target)];
 }
 
-char *get_square_info(SquareEntity square) {
+char *get_square_info(SquareEntity square, const char *name) {
 	char *buffer = (char *) malloc(50 * sizeof(char));
-	char *label[] = {"Pawn", "Knight", "Bishop", "Rook", "Queen", "King", ""};
 	strcat(buffer, position_to_string(square.position));
 	strcat(buffer, ": ");
-	strcat(buffer, label[square.piece.type]);
+
+	char *label;
+	if (strcmp(name, "White") == 0) {
+		label = whiteLabels[square.piece.type];
+	} else {
+		label = blackLabels[square.piece.type];
+	}
+	strcat(buffer, label);
+
 	return buffer;
 }
+
